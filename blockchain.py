@@ -1,25 +1,28 @@
 """
-This file provides the baseline for the blockchain app
+This file provides the baseline for the blockchain app.
 """
+
 blockchain = []
 
 
 def get_last_blockchain_value():
+    """Returns the last value in the blockchain."""
     return blockchain[-1]
 
 
 def add_value(transaction_amount, last_transaction=[1]):
-    """ append new value as well as last blockchain value to the blockchain
+    """Append a new transaction to the blockchain.
 
     Arguments:
-        :transaction_amount: amount that should be added
-        :last_transaction: last blockchain transaction (default is [1]
+        transaction_amount: The amount that should be added.
+        last_transaction: The last blockchain transaction. Defaults to the first transaction [1].
     """
 
     blockchain.append([last_transaction, transaction_amount])
 
 
 def get_user_input():
+    """Gets transaction amount from the user input."""
     return float(input("Transaction amount: "))
 
 
