@@ -5,7 +5,6 @@ blockchain = []
 
 
 def get_last_blockchain_value():
-    # return last blockchain value
     return blockchain[-1]
 
 
@@ -21,7 +20,6 @@ def add_value(transaction_amount, last_transaction=[1]):
 
 
 def get_user_input():
-    # return user input and convert to floating point number
     return float(input("Transaction amount: "))
 
 
