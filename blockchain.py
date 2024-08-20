@@ -1,4 +1,6 @@
-# initializing blockchain list
+"""
+This file provides the baseline for the blockchain app
+"""
 blockchain = []
 
 
@@ -14,7 +16,7 @@ def add_value(transaction_amount, last_transaction=[1]):
         :transaction_amount: amount that should be added
         :last_transaction: last blockchain transaction (default is [1]
     """
-    
+
     blockchain.append([last_transaction, transaction_amount])
 
 
