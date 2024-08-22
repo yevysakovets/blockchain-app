@@ -58,10 +58,6 @@ def verify_chain():
     return is_valid
 
 
-# Get first transaction input and add value to blockchain
-# tx_amount = get_transaction_value()
-# add_transaction(tx_amount)
-
 while True:
     print('Please choose')
     print('1: Add a new transaction value')
