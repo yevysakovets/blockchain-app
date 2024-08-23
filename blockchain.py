@@ -3,6 +3,8 @@ This file provides the baseline for the blockchain app.
 """
 
 blockchain = []
+open_transactions = []
+owner = 'Zhenya'
 
 
 def get_last_blockchain_value():
@@ -12,22 +14,27 @@ def get_last_blockchain_value():
     return blockchain[-1]
 
 
-def add_transaction(transaction_amount, last_transaction=[1]):
-    """Append a new transaction to the blockchain.
+def add_transaction(recipient,sender=owner, amount=1.0):
+    # Append a new transaction to the open_transactions
 
-    Arguments:
-        transaction_amount: The amount that should be added.
-        last_transaction: The last blockchain transaction. Defaults to the first transaction [1].
-    """
+    transaction = {
+        'sender': sender,
+        'recipient': recipient,
+        'amount': amount
+    }
+    open_transactions.append(transaction)
 
-    if last_transaction == None:
-        last_transaction = [1]
-    blockchain.append([last_transaction, transaction_amount])
+
+def mine_block():
+    # TODO add logic to append to blockchain
+    pass
 
 
 def get_transaction_value():
-    """Gets transaction amount from the user input."""
-    return float(input("Transaction amount: "))
+    """Return a tuple containing recipient and transaction amount."""
+    tx_recipient = input('Enter the recipient of the transaction: ')
+    tx_amount = float(input("Transaction amount: "))
+    return tx_recipient, tx_amount
 
 
 def get_user_choice():
@@ -70,8 +77,10 @@ while waiting_for_input:
     print('q: Quit')
     user_choice = get_user_choice()
     if user_choice == '1':
-        tx_amount = get_transaction_value()
-        add_transaction(tx_amount, get_last_blockchain_value())
+        tx_data = get_transaction_value()
+        recipient, amount = tx_data
+        add_transaction(recipient, amount=amount)
+        print(open_transactions)
     elif user_choice == '2':
         print_blockchain_elements()
     elif user_choice == 'h':
